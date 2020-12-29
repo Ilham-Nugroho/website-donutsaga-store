@@ -67,7 +67,20 @@
 
 
 
-/* INI MULAI COBA */
+/* RE-STYLING CSS */
+h2 {
+  font-family: "Staatliches"
+}
+
+.donut-img {
+  width: 200px;
+}
+
+.donut-header {
+  margin-bottom: 2rem;
+  font-size: 5rem;
+}
+
 .donut-container {
   margin: 2rem 5% 3rem 5%;
   padding: 0;
@@ -87,17 +100,27 @@
 
 .donut-grid a {
   text-decoration: none;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .donut-title {
   font-family: "Gotham Rounded";
+  margin-top: 0.5rem;
+  color: black;
+}
+
+.donut-title h6 {
+  display: table;
   font-weight: bold;
   background-color: yellow;
   margin: 0;
+  padding: 0;
+}
+
+.donut-title p {
+  font-weight: lighter;
 }
 
 .donut-desc {
   font-weight: lighter;
-
 }

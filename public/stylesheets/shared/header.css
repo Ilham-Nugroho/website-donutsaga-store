@@ -5,7 +5,7 @@
 }
 
 .header-title{
-  font-family: "Gotham Rounded";
+  font-family: "Staatliches";
   /* color: var(--color-text-light); */
   color: black;
   text-decoration: none;
@@ -36,7 +36,7 @@
   color: black;
   font-weight: var(--nav-link-font-weight);
   padding: 1rem;
-  font-family: "Gotham Rounded";
+  font-family: "Staatliches";
 }
 
 .header-nav li a:hover, .header-title:hover {

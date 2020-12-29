@@ -1,21 +1,25 @@
-<h2 class="page-header"><%= donut.title %></h2>
+<div class="donut-container">
+  <h2 class="page-header"><%= donut.title %></h2>
 
-<div class="donut-details">
-  <div class="">
-    <img src="<%= donut.coverImagePath %>" class="donut-cover">
+  <div class="donut-details">
 
-    <div class="donut-details-btn-grid">
-      <a class="btn btn-primary" href="/donuts/<%= donut.id %>/edit">Edit</a>
-      <%- include('../partials/deleteForm', {url: `/donuts/${donut.id}`}) %>
-    </div>
-  </div>
-
-  <div class="donut-details-grid">
-    <div class="donut-details-label">
-      Description:
-    </div>
     <div class="">
-      <%= donut.description %>
+      <img src="<%= donut.coverImagePath %>" class="donut-img">
+
+      <div class="donut-details-btn-grid">
+        <a class="btn btn-primary" href="/donuts/<%= donut.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', {url: `/donuts/${donut.id}`}) %>
+      </div>
     </div>
+
+    <div class="donut-details-grid">
+      <div class="donut-details-label">
+        Description:
+      </div>
+      <div class="">
+        <%= donut.description %>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -7,7 +7,7 @@
 
 
 :root {
-  font-family: 'Gotham Rounded';
+  font-family: 'Staatliches';
   font-size: 20px;
   color: black;
 }
@@ -22,7 +22,7 @@ body {
 
 /* SECTION 1 */
 .navbar {
-  padding: 1rem 1.5rem 0rem 0rem;
+  padding: 1rem 5% 0rem 5%;
   justify-content: space-between;
   align-items: center;
   background-color: #fcf8ec;
@@ -50,10 +50,11 @@ body {
 .navbar-links li a {
   text-decoration: none;
   color: grey;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 2rem;
   display: block;
   font-weight: 400;
-  font-family: "Gotham Rounded"
+  font-family: "Staatliches";
+  font-size: 1.5rem;
 }
 
 .navbar-links li a:hover {
@@ -62,10 +63,10 @@ body {
 
 
 .navbar-brand {
-  font-family: "Gotham Rounded";
+  font-family: "Staatliches";
   font-size: 2rem;
   color: black;
-  margin: 0 0 0 5%;
+  margin: 0;
 }
 
 .container {

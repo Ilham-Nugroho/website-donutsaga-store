@@ -7,11 +7,11 @@
 <div class="donut-grid">
 
   <% donuts.forEach(donut => { %>
-      <a href="">
+      <a href="/donuts/<%= donut.id %>">
         <img
         src="<%= donut.coverImagePath %>" alt="">
-        <div >
-          <p class="donut-title"><%= donut.title %></p>
+        <div class="donut-title">
+          <h6><%= donut.title %></h6>
           <p><%= donut.description %></p>
         </div>
         </a>
