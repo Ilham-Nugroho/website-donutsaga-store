@@ -1,0 +1,103 @@
+:root {
+  --donut-cover-width: 200px;
+  --donut-cover-width-large: 325px;
+  --donut-cover-aspect-ratio: 0.75;
+  /* --donut-cover-width: 50%;
+  --donut-cover-width-large: 60%;
+  --donut-cover-aspect-ratio: 0.75; */
+}
+
+.donut-cover {
+  width: var(--donut-cover-width);
+  height: calc(var(--donut-cover-width)/var(--donut-cover-aspect-ratio));
+}
+
+.donut-cover-large {
+  --donut-cover-width: var(--donut-cover-width-large);
+}
+
+.donut-container {
+  margin: 0;
+  padding: 0;
+}
+
+.donut-grid {
+  display: grid;
+  justify-content: flex-start;
+  grid-gap: 5%;
+  grid-template-columns: repeat(auto-fill, var(--donut-cover-width));
+
+}
+
+
+.donut-grid-large {
+  grid-template-columns: repeat(auto-fill, var(--donut-cover-width-large));
+}
+
+
+.donut-details {
+  display: flex;
+}
+
+.donut-details-label {
+  font-family: "Gotham Rounded";
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.donut-details-grid {
+  display: grid;
+  align-items: center;
+  align-content: flex-start;
+  grid-gap: 1rem;
+  grid-template-columns: auto auto;
+}
+
+.donut-details-btn-grid {
+  display: grid;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-areas:
+  "edit delete";
+  grid-gap: .5rem;
+  margin-top: .5rem;
+}
+
+
+
+/* INI MULAI COBA */
+.donut-container {
+  margin: 2rem 5% 3rem 5%;
+  padding: 0;
+}
+
+.donut-grid {
+  position: relative;
+  display: grid;
+  justify-content: space-between;
+  gap: 10px 5%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.donut-grid img {
+  width: 100%;
+}
+
+.donut-grid a {
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.donut-title {
+  font-family: "Gotham Rounded";
+  font-weight: bold;
+  background-color: yellow;
+  margin: 0;
+}
+
+.donut-desc {
+  font-weight: lighter;
+
+}

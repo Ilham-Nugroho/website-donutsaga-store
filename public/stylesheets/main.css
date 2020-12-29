@@ -1,0 +1,82 @@
+@import 'shared/variables.css';
+@import 'shared/fonts.css';
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+@import 'shared/forms.css';
+@import 'shared/donuts.css';
+
+
+:root {
+  font-family: 'Gotham Rounded';
+  font-size: 20px;
+  color: black;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fcf8ec;
+}
+
+/* SECTION 1 */
+.navbar {
+  padding: 1rem 1.5rem 0rem 0rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcf8ec;
+  display: flex;
+  width: 100%;
+  top: 0;
+  z-index: 10000;
+  position: sticky;
+}
+
+.navbar-toggler {
+  background-color: #fcf8ec;
+}
+
+.navbar-links ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: grey;
+  padding: 1rem;
+  display: block;
+  font-weight: 400;
+  font-family: "Gotham Rounded"
+}
+
+.navbar-links li a:hover {
+  color: black;
+}
+
+
+.navbar-brand {
+  font-family: "Gotham Rounded";
+  font-size: 2rem;
+  color: black;
+  margin: 0 0 0 5%;
+}
+
+.container {
+  margin: 0 5% 3rem 5%;
+  padding: 0;
+}
+
+.inner-container {
+  margin: 0 2rem;
+}
+
+.error-message {
+  color: hsl(var(--color-danger-hue), 100%, 50%)
+}

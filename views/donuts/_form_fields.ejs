@@ -1,0 +1,18 @@
+<div class="form-row">
+  <div class="form-item">
+    <label for="">Title</label>
+    <input type="text" name="title" value="<%= donut.title%>">
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label for="">Cover</label>
+    <input type="file" name="cover" class="filepond donut-cover">
+  </div>
+
+  <div class="form-item">
+    <label for="">Description</label>
+    <textarea name="description"><%= donut.description %></textarea>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<% donutCoverClass = locals.large ? 'donut-cover-large' : '' %>
+
+<% donutGridClass = locals.large ? 'donut-grid-large' : '' %>
+
+
+
+<div class="donut-grid">
+
+  <% donuts.forEach(donut => { %>
+      <a href="">
+        <img
+        src="<%= donut.coverImagePath %>" alt="">
+        <div >
+          <p class="donut-title"><%= donut.title %></p>
+          <p><%= donut.description %></p>
+        </div>
+        </a>
+      <%})%>
+
+</div>

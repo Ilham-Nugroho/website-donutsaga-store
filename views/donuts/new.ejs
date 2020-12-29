@@ -1,0 +1,15 @@
+<h2 class="page-header">New donut</h2>
+
+<form class="" action="/donuts" method="post" >
+<!-- enctype="multipart/form-data" DALAM FORM DIHAPUS
+MULTER UNINSTALLED, enctype SUDAH TIDAK DIBUTUHKAN
+KARENA SUDAH PAKAI FilePond
+FilePond IMAGENYA PAKAI base64 JSON -->
+
+    <%- include('_form_fields') %>
+    <div class="btn-row form-row form-row-end">
+      <a class="btn btn-danger" href="/donuts">Cancel</a>
+      <button class="btn btn-primary" type="submit" name="button">Create</button>
+    </div>
+
+</form>
