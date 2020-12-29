@@ -3,3 +3,7 @@
 
   <%- include('./partials/donutGrid', {donuts: donuts, large: true}) %>
 </div>
+
+<form class="form-signin" action="/donuts/logout?_method=DELETE" method="POST">
+  <button type="submit" name="button">Log Out</button>
+</form>

@@ -1,13 +1,76 @@
 const express = require('express');
 const router = express.Router();
-
 const Donut = require('../models/donut');
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 
+
+
+// COBA MASUKIN ANTARA DI ROUTER OR SERVER
+const bcrypt = require('bcrypt');
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+
+
+
+const User = require('../models/user')
+
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport,
+  email => User.findOne({email: email}),
+  id => User.findOne({id: id})
+)
+// -----------------------------------------
+
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+router.get('/login', checkNotAuthenticated, (req,res) => {
+    res.render('./login.ejs')
+})
+
+
+router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/donuts/login',
+  failureFlash: true
+}))
+
+router.get('/register', checkNotAuthenticated, (req,res) => {
+  res.render('./register.ejs')
+})
+
+router.post('/register', checkNotAuthenticated, async (req,res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const users = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    })
+    users.save()
+    res.redirect('/donuts/login')
+  } catch {
+    res.redirect('/donuts/register')
+  }
+})
+
+router.delete('/logout', (req,res) => {
+  req.logOut()
+  res.redirect('/donuts/register')
+})
+// ---------------------------------------
+
+
+
+
+
+
+
+
 // All donuts Route
-router.get('/', async (req, res) => {
+router.get('/', checkAuthenticated, async (req, res) => {
   let query = Donut.find()
   if (req.query.title != null && req.query.title != '') {
     query = query.regex('title', new RegExp(req.query.title, 'i'))
@@ -34,7 +97,7 @@ router.get('/', async (req, res) => {
 
 
 // New donuts Route
-router.get('/new', async (req, res) => {
+router.get('/new', checkAuthenticated, async (req, res) => {
   renderNewPage(res, new Donut())
 
 })
@@ -44,14 +107,14 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
     const donut = new Donut({
       title: req.body.title,
-      publishDate: new Date(req.body.publishDate),
-      pageCount: req.body.pageCount,
+      // publishDate: new Date(req.body.publishDate),
+      // pageCount: req.body.pageCount,
       description: req.body.description
     })
     saveCover(donut, req.body.cover)
 
     try {
-      const newdonut = await Donut.save()
+      const newdonut = await donut.save()
       res.redirect(`donuts/${newdonut.id}`)
 
     } catch {
@@ -62,7 +125,7 @@ router.post('/', async (req, res) => {
 
 
 //SHOW donut ROUTE
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkAuthenticated, async (req, res) => {
   try {
     const donut = await Donut.findById(req.params.id)
     res.render('donuts/show', {
@@ -75,7 +138,7 @@ router.get('/:id', async (req, res) => {
 
 
 //EDIT donut ROUTE
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', checkAuthenticated, async (req, res) => {
   try {
     const donut = await Donut.findById(req.params.id)
     renderEditPage(res, donut)
@@ -92,8 +155,8 @@ router.put('/:id/',
     try {
       donut = await Donut.findById(req.params.id)
       donut.title = req.body.title
-      donut.publishDate = new Date(req.body.publishDate)
-      donut.pageCount = req.body.pageCount
+      // donut.publishDate = new Date(req.body.publishDate)
+      // donut.pageCount = req.body.pageCount
       donut.description = req.body.description
       if (req.body.cover != null && req.body.cover !== '') {
         saveCover(donut, req.body.cover)
@@ -168,6 +231,27 @@ async function renderFormPage(res, donut, form, hasError = false) {
     res.redirect('/donuts')
   }
 }
+
+
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+function checkAuthenticated(req,res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/donuts/login')
+}
+
+function checkNotAuthenticated (req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/donuts/')
+  }
+  next ()
+}
+
+
+// ---------------------------------------------
+
 
 
 module.exports = router
