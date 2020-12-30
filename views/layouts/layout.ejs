@@ -11,15 +11,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap" rel="stylesheet">
 
+
+    <script defer src="/javascripts/gmaps.js"> </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPCWRzC27m6mm2DyFcXYZyeB8Uyv1ODhU&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/javascripts/fileUpload.js" ></script>
 
+
   </head>
   <body>
-
       <%- include('../partials/errorMessage.ejs') %>
       <%- body %>
 

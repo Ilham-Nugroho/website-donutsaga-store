@@ -130,11 +130,7 @@ body {
   border-top-right-radius: 0;
 }
 
-
-.aaa {
-
-}
-
-.bbb {
-  
+#map {
+  height: 70vh;
+  width:70vw;
 }
