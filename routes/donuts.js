@@ -58,7 +58,7 @@ router.post('/register', checkNotAuthenticated, async (req,res) => {
 
 router.delete('/logout', (req,res) => {
   req.logOut()
-  res.redirect('/donuts/register')
+  res.redirect('/donuts/login')
 })
 // ---------------------------------------
 
